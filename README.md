@@ -28,3 +28,8 @@ A sleek, animated single-page weather application built with **Next.js**, **Tail
 
 **Khushman Kapoor**  
 [GitHub](https://github.com/khushmank08) • [Portfolio](https://portfolio-tau-lime-2o1ld0iwt9.vercel.app/)
+
+## Credits
+
+This project uses weather data provided by [OpenWeather API](https://openweathermap.org/api).  
+Thanks to OpenWeather for providing the free weather data API.
