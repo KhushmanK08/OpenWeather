@@ -15,7 +15,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .text-glass {
@@ -33,7 +33,6 @@ body {
   border-radius: 1rem;
 }
 
-
 .weather-effects-container {
   position: fixed;
   pointer-events: none;
@@ -45,7 +44,6 @@ body {
   overflow: hidden;
 }
 
-/* RAIN */
 .rain .raindrop {
   position: absolute;
   top: -10%;
@@ -64,7 +62,6 @@ body {
   }
 }
 
-/* SNOW */
 .snow .snowflake {
   position: absolute;
   top: -10%;
@@ -84,7 +81,6 @@ body {
   }
 }
 
-/* WIND */
 .wind::before {
   content: "";
   position: absolute;
@@ -116,7 +112,6 @@ body {
   }
 }
 
-/* THUNDERSTORM */
 .thunderstorm {
   position: absolute;
   top: 0;

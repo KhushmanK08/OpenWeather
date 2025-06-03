@@ -52,14 +52,17 @@ export default function SearchBar({ onSearch, theme }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md relative flex">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full max-w-md sm:max-w-full relative flex"
+    >
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => query.length > 1 && setShowSuggestions(true)}
         placeholder="Enter city name"
-        className={`flex-grow px-5 py-2 rounded-l-lg shadow focus:outline-none focus:ring-2 ${theme === 'dark'
+        className={`flex-grow px-4 py-2 rounded-l-lg shadow focus:outline-none focus:ring-2 text-base sm:text-sm xs:text-sm ${theme === 'dark'
             ? 'bg-gray-800 text-white placeholder-gray-400 ring-white/30'
             : 'bg-white text-gray-800 placeholder-gray-500 ring-gray-300'
           }`}
@@ -67,7 +70,7 @@ export default function SearchBar({ onSearch, theme }) {
       />
       <button
         type="submit"
-        className={`px-5 py-2 font-semibold rounded-r-lg transition-all duration-300 shadow-md ${theme === 'dark'
+        className={`px-5 py-2 font-semibold rounded-r-lg transition-all duration-300 shadow-md text-base sm:text-sm xs:text-sm ${theme === 'dark'
             ? 'bg-white/30 text-white hover:bg-white/40'
             : 'bg-blue-500 text-white hover:bg-blue-600'
           }`}

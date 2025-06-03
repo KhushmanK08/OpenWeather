@@ -54,12 +54,15 @@ const WeatherCard = ({ weather }) => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.6 }}
-        className="max-w-2xl w-full px-6 py-10 rounded-2xl backdrop-blur-md bg-white/10 shadow-xl border border-white/20 text-white text-center mt-8"
+        className="max-w-2xl w-full px-8 py-10 rounded-2xl backdrop-blur-md bg-white/10 shadow-xl border border-white/20 text-white text-center mt-8
+          sm:px-6 sm:py-8
+          xs:px-4 xs:py-6
+        "
       >
-        <div className="text-5xl mb-4">{icon}</div>
-        <h2 className="text-3xl font-bold mb-2">{name}</h2>
-        <p className="text-xl capitalize mb-4">{description}</p>
-        <div className="grid grid-cols-2 gap-6 text-lg">
+        <div className="text-6xl sm:text-5xl xs:text-4xl mb-4">{icon}</div>
+        <h2 className="text-4xl sm:text-3xl xs:text-2xl font-bold mb-2">{name}</h2>
+        <p className="text-2xl sm:text-xl xs:text-lg capitalize mb-4">{description}</p>
+        <div className="grid grid-cols-2 gap-6 text-lg sm:text-base xs:text-sm">
           <div>
             <p className="font-medium">Temperature</p>
             <p>{Math.round(temp)}°C</p>
