@@ -59,15 +59,15 @@ export default function SearchBar({ onSearch, theme }) {
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => query.length > 1 && setShowSuggestions(true)}
         placeholder="Enter city name"
-        className={`flex-grow px-5 py-3 rounded-l-lg shadow focus:outline-none focus:ring-2 ${theme === 'dark'
-          ? 'bg-gray-800 text-white placeholder-gray-400 ring-white/30'
-          : 'bg-white text-gray-800 placeholder-gray-500 ring-gray-300'
+        className={`flex-grow px-5 py-2 rounded-l-lg shadow focus:outline-none focus:ring-2 ${theme === 'dark'
+            ? 'bg-gray-800 text-white placeholder-gray-400 ring-white/30'
+            : 'bg-white text-gray-800 placeholder-gray-500 ring-gray-300'
           }`}
         autoComplete="off"
       />
       <button
         type="submit"
-        className={`px-5 py-2 font-semibold rounded-lg transition-all duration-300 shadow-md ${theme === 'dark'
+        className={`px-5 py-2 font-semibold rounded-r-lg transition-all duration-300 shadow-md ${theme === 'dark'
             ? 'bg-white/30 text-white hover:bg-white/40'
             : 'bg-blue-500 text-white hover:bg-blue-600'
           }`}
@@ -76,7 +76,7 @@ export default function SearchBar({ onSearch, theme }) {
       </button>
 
       {showSuggestions && suggestions.length > 0 && (
-        <ul className="absolute z-50 top-full left-0 right-0 bg-white text-gray-800 shadow-lg mt-1 rounded-b-lg overflow-hidden max-h-60 overflow-y-auto">
+        <ul className="absolute z-50 top-full left-0 right-0 bg-white text-gray-800 shadow-lg mt-1 rounded-b-lg overflow-hidden max-h-40 overflow-y-auto">
           {suggestions.map((city, i) => (
             <li
               key={i}
