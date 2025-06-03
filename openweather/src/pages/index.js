@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import React, { useState } from 'react';
 import Head from 'next/head';
 import SearchBar from '../components/SearchBar';
@@ -61,7 +63,7 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-lg md:text-xl text-center mb-6 text-white/90"
           >
-            Check any city's forecast instantly
+            Check any city&apos;s forecast instantly
           </motion.p>
 
           <SearchBar onSearch={fetchWeather} theme="dark" />
