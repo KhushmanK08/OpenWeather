@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 export default function SearchBar({ onSearch, theme }) {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (query.length < 2) {
         setSuggestions([]);
+        setShowSuggestions(false);
         return;
       }
 
@@ -21,9 +23,11 @@ export default function SearchBar({ onSearch, theme }) {
           (place) => `${place.name}, ${place.countryCode}`
         );
         setSuggestions(cityNames);
+        setShowSuggestions(true);
       } catch (error) {
         console.error('Failed to fetch suggestions:', error);
         setSuggestions([]);
+        setShowSuggestions(false);
       }
     };
 
@@ -34,31 +38,45 @@ export default function SearchBar({ onSearch, theme }) {
   const handleSelect = (city) => {
     setQuery(city);
     setSuggestions([]);
+    setShowSuggestions(false);
     onSearch(city);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
-      onSearch(query);
+      onSearch(query.trim());
       setSuggestions([]);
+      setShowSuggestions(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md relative">
+    <form onSubmit={handleSubmit} className="w-full max-w-md relative flex">
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onFocus={() => query.length > 1 && setShowSuggestions(true)}
         placeholder="Enter city name"
-        className={`w-full px-5 py-3 rounded-lg shadow focus:outline-none focus:ring-2 ${theme === 'dark'
+        className={`flex-grow px-5 py-3 rounded-l-lg shadow focus:outline-none focus:ring-2 ${theme === 'dark'
             ? 'bg-gray-800 text-white placeholder-gray-400 ring-white/30'
             : 'bg-white text-gray-800 placeholder-gray-500 ring-gray-300'
           }`}
+        autoComplete="off"
       />
-      {suggestions.length > 0 && (
-        <ul className="absolute z-50 w-full bg-white text-gray-800 shadow-lg mt-1 rounded-lg overflow-hidden max-h-60 overflow-y-auto">
+      <button
+        type="submit"
+        className={`px-6 py-3 rounded-r-lg font-semibold transition-colors duration-300 ${theme === 'dark'
+            ? 'bg-red-600 hover:bg-red-700 text-white border border-red-700'
+            : 'bg-red-400 hover:bg-red-500 text-white border border-red-500'
+          }`}
+      >
+        Search
+      </button>
+
+      {showSuggestions && suggestions.length > 0 && (
+        <ul className="absolute z-50 top-full left-0 right-0 bg-white text-gray-800 shadow-lg mt-1 rounded-b-lg overflow-hidden max-h-60 overflow-y-auto">
           {suggestions.map((city, i) => (
             <li
               key={i}
