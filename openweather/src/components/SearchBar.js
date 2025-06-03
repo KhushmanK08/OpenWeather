@@ -60,16 +60,16 @@ export default function SearchBar({ onSearch, theme }) {
         onFocus={() => query.length > 1 && setShowSuggestions(true)}
         placeholder="Enter city name"
         className={`flex-grow px-5 py-3 rounded-l-lg shadow focus:outline-none focus:ring-2 ${theme === 'dark'
-            ? 'bg-gray-800 text-white placeholder-gray-400 ring-white/30'
-            : 'bg-white text-gray-800 placeholder-gray-500 ring-gray-300'
+          ? 'bg-gray-800 text-white placeholder-gray-400 ring-white/30'
+          : 'bg-white text-gray-800 placeholder-gray-500 ring-gray-300'
           }`}
         autoComplete="off"
       />
       <button
         type="submit"
-        className={`px-6 py-3 rounded-r-lg font-semibold transition-colors duration-300 ${theme === 'dark'
-            ? 'bg-red-600 hover:bg-red-700 text-white border border-red-700'
-            : 'bg-red-400 hover:bg-red-500 text-white border border-red-500'
+        className={`px-5 py-2 font-semibold rounded-lg transition-all duration-300 shadow-md ${theme === 'dark'
+            ? 'bg-white/30 text-white hover:bg-white/40'
+            : 'bg-blue-500 text-white hover:bg-blue-600'
           }`}
       >
         Search
