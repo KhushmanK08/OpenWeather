@@ -5,13 +5,6 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -23,4 +16,133 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-glass {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(5px);
+  color: white;
+}
+
+.bg-glass {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  color: white;
+  border-radius: 1rem;
+}
+
+
+.weather-effects-container {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* RAIN */
+.rain .raindrop {
+  position: absolute;
+  top: -10%;
+  width: 2px;
+  height: 25px;
+  background: linear-gradient(to bottom, rgba(163, 196, 243, 0.8), rgba(163, 196, 243, 0.3));
+  filter: blur(0.5px);
+  border-radius: 1px;
+  animation: rain-fall 0.6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes rain-fall {
+  to {
+    transform: translateY(120vh);
+  }
+}
+
+/* SNOW */
+.snow .snowflake {
+  position: absolute;
+  top: -10%;
+  font-size: 1rem;
+  color: white;
+  opacity: 0.9;
+  animation: snow-fall 10s linear infinite;
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  100% {
+    transform: translateY(120vh) translateX(20px);
+  }
+}
+
+/* WIND */
+.wind::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30%;
+  width: 80vw;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(204, 204, 204, 0.4);
+  filter: blur(2px);
+  animation: wind-move 4s linear infinite;
+  transform-origin: left center;
+}
+
+@keyframes wind-move {
+  0% {
+    left: -30%;
+    opacity: 0.3;
+  }
+
+  50% {
+    left: 100%;
+    opacity: 0.6;
+  }
+
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+/* THUNDERSTORM */
+.thunderstorm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: thunder-flash 5s linear infinite;
+  background-color: transparent;
+}
+
+@keyframes thunder-flash {
+
+  0%,
+  90%,
+  100% {
+    background-color: transparent;
+    opacity: 0;
+  }
+
+  95% {
+    background-color: white;
+    opacity: 0.25;
+  }
+
+  97% {
+    background-color: transparent;
+    opacity: 0;
+  }
 }
