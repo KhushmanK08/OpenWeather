@@ -23,3 +23,8 @@ A sleek, animated single-page weather application built with **Next.js**, **Tail
 👉 **Check out the live app here:** [https://your-deployment-url.vercel.app](https://open-weather-rho.vercel.app/)
 
 > You can view and use the weather app from the link above. The repository is meant for showcasing only — no cloning or modifications intended.
+
+## 🧑‍💻 Author
+
+**Khushman Kapoor**  
+[GitHub](https://github.com/khushmank08) • [Portfolio](https://portfolio-tau-lime-2o1ld0iwt9.vercel.app/)
